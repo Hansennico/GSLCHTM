@@ -22,7 +22,11 @@ public class Main {
 			int menu = input.nextInt();
 			switch(menu) {
 				case 1:
-					System.out.println("add name:");
+		
+					break;
+				case 2:
+
+								System.out.println("add name:");
             	String name = scanner.nextLine();
             	System.out.println("add nim:");
             	String nim = scanner.nextLine();
@@ -50,8 +54,6 @@ public class Main {
             System.out.println("Team created!");
         }
     }
-					break;
-				case 2:
 					
 					break;
 				case 3:
