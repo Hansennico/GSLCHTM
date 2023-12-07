@@ -3,7 +3,14 @@ import java.util.Map;
 package Models;
 
 public class Model {
+String TeamName;
+String UserName;
 
+Model(String TeamName, String Username){
+    this.TeamName = TeamName;
+    this.UserName = UserName;
+}
+    
 
 public class CSVQueryFacade {
     private CSVReader reader;
