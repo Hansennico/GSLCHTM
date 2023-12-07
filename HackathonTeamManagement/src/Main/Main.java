@@ -26,32 +26,32 @@ public class Main {
 					break;
 				case 2:
 
-								System.out.println("add name:");
-            	String name = scanner.nextLine();
-            	System.out.println("add nim:");
-            	String nim = scanner.nextLine();
-            	System.out.println("add team:");
-            	String teamName = scanner.nextLine();
+				System.out.println("add name:");
+            			String name = scanner.nextLine();
+            			System.out.println("add nim:");
+            			String nim = scanner.nextLine();
+            			System.out.println("add team:");
+            			String teamName = scanner.nextLine();
 
-            	Team team = teamRepository.findOne("name", new String[]{"=", teamName}, false, null, null);
-            	if (team == null) {
+            			Team team = teamRepository.findOne("name", new String[]{"=", teamName}, false, null, null);
+            			if (team == null) {
                 
-                team = teamRepository.insert(new String[]{teamName}, null);
-            }
+              			  team = teamRepository.insert(new String[]{teamName}, null);
+           			 }
 
-            if (team.getUsers().size() >= 3) {
-                System.out.println("Error: Team full.");
-                return;
-            }
+            			if (team.getUsers().size() >= 3) {
+               			 System.out.println("Error: Team full.");
+                		return;
+            			}
 
-            User user = userRepository.insert(new String[]{name, nim, team.getName()}, null);
-            System.out.println("User created!");
-        } else if (choice == 2) {
-            System.out.println("add team name:");
-            String teamName = scanner.nextLine();
+           			 User user = userRepository.insert(new String[]{name, nim, team.getName()}, null);
+           			 System.out.println("User created!");
+        } 			else if (choice == 2) {
+            			System.out.println("add team name:");
+           			String teamName = scanner.nextLine();
 
-            Team team = teamRepository.insert(new String[]{teamName}, null);
-            System.out.println("Team created!");
+            			Team team = teamRepository.insert(new String[]{teamName}, null);
+            			System.out.println("Team created!");
         }
     }
 					
