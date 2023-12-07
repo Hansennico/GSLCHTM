@@ -22,6 +22,34 @@ public class Main {
 			int menu = input.nextInt();
 			switch(menu) {
 				case 1:
+					System.out.println("add name:");
+            	String name = scanner.nextLine();
+            	System.out.println("add nim:");
+            	String nim = scanner.nextLine();
+            	System.out.println("add team:");
+            	String teamName = scanner.nextLine();
+
+            	Team team = teamRepository.findOne("name", new String[]{"=", teamName}, false, null, null);
+            	if (team == null) {
+                
+                team = teamRepository.insert(new String[]{teamName}, null);
+            }
+
+            if (team.getUsers().size() >= 3) {
+                System.out.println("Error: Team full.");
+                return;
+            }
+
+            User user = userRepository.insert(new String[]{name, nim, team.getName()}, null);
+            System.out.println("User created!");
+        } else if (choice == 2) {
+            System.out.println("add team name:");
+            String teamName = scanner.nextLine();
+
+            Team team = teamRepository.insert(new String[]{teamName}, null);
+            System.out.println("Team created!");
+        }
+    }
 					break;
 				case 2:
 					
