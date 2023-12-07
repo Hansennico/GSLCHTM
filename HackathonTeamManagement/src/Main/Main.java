@@ -4,16 +4,14 @@ import java.util.Scanner;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException{
 		// TODO Auto-generated method stub
-		System.out.println("Test");
 		Connection teams = new Connection();
-		teams.read("/home/hansen/Documents/OOP/GSLCHTM/Database/teams.csv");
-		teams.read("/home/hansen/Documents/OOP/GSLCHTM/Database/user.csv");
 		
 		Scanner input = new Scanner(System.in);
 		
 		while(true) {
+			clearScreen();
 			System.out.println("1. Menu Utama");
 			System.out.println("2. Insert Data");
 			System.out.println("3. Show");
@@ -57,6 +55,17 @@ public class Main {
 					
 					break;
 				case 3:
+					System.out.println("Which table to show? 1.team, 2.user");
+					int showtable = input.nextInt();
+					if(showtable == 1) {
+						teams.read("/home/hansen/Documents/OOP/GSLCHTM/Database/teams.csv");
+					}else if(showtable == 2) {
+						teams.read("/home/hansen/Documents/OOP/GSLCHTM/Database/user.csv");
+					}else {
+						System.out.print("invalid input");
+					}
+//					System.out.println("Want to filter by condition");
+					Thread.sleep(5000);
 					break;
 				case 4:
 					System.exit(0);
@@ -69,4 +78,9 @@ public class Main {
 		}
 		
 	}
+	public static void clearScreen() {  
+	    for(int i=0; i<100; i++)
+	    	System.out.println(" ");
+	    System.out.flush();  
+	}  
 }
