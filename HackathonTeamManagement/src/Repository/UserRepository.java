@@ -1,5 +1,5 @@
 package Repository;
 
-public class UserRepository {
+public class UserRepository implements Repository{
 
 }
