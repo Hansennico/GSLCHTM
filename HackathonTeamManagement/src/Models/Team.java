@@ -1,5 +1,5 @@
 package Models;
 
-public class Team {
+public class Team extends Model{
 
 }
